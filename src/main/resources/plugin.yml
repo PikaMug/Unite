@@ -1,0 +1,19 @@
+name: Unite
+main: me.pikamug.unite.Unite
+version: ${project.version}
+api-version: 1.13
+description: Abstraction library for Minecraft party plugins
+dev-url: https://github.com/PikaMug/Unite
+author: PikaMug
+softdepend: [DungeonsXL, Parties]
+
+commands:
+  unite:
+    description: Displays information about Unite
+    usage: |
+      /<command> - Displays Unite information
+    permission: unite.admin
+permissions:
+  unite.admin:
+    description: Permits use of Unite commands.
+    default: op
