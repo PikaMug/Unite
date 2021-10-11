@@ -6,7 +6,7 @@
 
     <groupId>me.pikamug.unite</groupId>
     <artifactId>Unite</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,6 +26,11 @@
             <!-- DungeonsXL -->
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <!-- mcMMO Overhaul -->
+            <id>neetgames</id>
+            <url>https://nexus.neetgames.com/repository/maven-releases/</url>
         </repository>
     </repositories>
 
@@ -52,6 +57,12 @@
             <groupId>com.github.PikaMug</groupId>
             <artifactId>DungeonsXL-Dummy</artifactId>
             <version>377c3a340e</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gmail.nossr50.mcMMO</groupId>
+            <artifactId>mcMMO</artifactId>
+            <version>2.1.202</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

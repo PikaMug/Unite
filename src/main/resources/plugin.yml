@@ -5,7 +5,8 @@ api-version: 1.13
 description: Abstraction library for Minecraft party plugins
 dev-url: https://github.com/PikaMug/Unite
 author: PikaMug
-softdepend: [DungeonsXL, Parties]
+softdepend: [DungeonsXL, mcMMO, Parties]
+load: STARTUP
 
 commands:
   unite:
