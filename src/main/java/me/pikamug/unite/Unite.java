@@ -55,7 +55,7 @@ public class Unite extends JavaPlugin {
     public void hookProviders() {
         hookProvider("Parties", PartyProvider_Parties.class, ServicePriority.Highest, "com.alessiodp.parties.api.interfaces.PartiesAPI");
         hookProvider("DungeonsXL", PartyProvider_DungeonsXL.class, ServicePriority.Normal, "de.erethon.dungeonsxl.DungeonsXL");
-        hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager"); //TODO might not work
+        hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager");
     }
 
     private void hookProvider(String name, Class<? extends PartyProvider> hookClass, ServicePriority priority, String...packages) {

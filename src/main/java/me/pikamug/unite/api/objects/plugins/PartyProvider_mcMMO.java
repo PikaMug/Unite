@@ -129,7 +129,10 @@ public class PartyProvider_mcMMO extends PartyProvider {
 
     @Override
     public String getPartyName(UUID playerId) {
-        return PartyManager.getParty(Bukkit.getPlayer(playerId)).getName();
+        if (PartyManager.getParty(Bukkit.getPlayer(playerId)) != null) {
+            return PartyManager.getParty(Bukkit.getPlayer(playerId)).getName();
+        }
+        return null;
     }
 
     @Override
