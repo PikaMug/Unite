@@ -32,15 +32,15 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class PartyProvider_DungeonsXL extends PartyProvider {
-    private DungeonsXL dungeonsxl;
+    private DungeonsXL dungeonsXl;
     private final String pluginName = "DungeonsXL";
 
     public PartyProvider_DungeonsXL(Plugin plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(new PartyServerListener(this), plugin);
 
-        if (dungeonsxl == null) {
-            dungeonsxl = DungeonsXL.getInstance();
+        if (dungeonsXl == null) {
+            dungeonsXl = DungeonsXL.getInstance();
         }
     }
 
@@ -53,9 +53,9 @@ public class PartyProvider_DungeonsXL extends PartyProvider {
 
         @EventHandler(priority = EventPriority.MONITOR)
         public void onPluginEnable(PluginEnableEvent event) {
-            if (partyPlugin.dungeonsxl == null) {
+            if (partyPlugin.dungeonsXl == null) {
                 if (event.getPlugin().getDescription().getName().equals(pluginName)) {
-                    partyPlugin.dungeonsxl = DungeonsXL.getInstance();
+                    partyPlugin.dungeonsXl = DungeonsXL.getInstance();
                     log.info(String.format("[%s][Party] %s hooked.", plugin.getDescription().getName(), partyPlugin.pluginName));
                 }
             }
@@ -63,9 +63,9 @@ public class PartyProvider_DungeonsXL extends PartyProvider {
 
         @EventHandler(priority = EventPriority.MONITOR)
         public void onPluginDisable(PluginDisableEvent event) {
-            if (partyPlugin.dungeonsxl != null) {
+            if (partyPlugin.dungeonsXl != null) {
                 if (event.getPlugin().getDescription().getName().equals(pluginName)) {
-                    partyPlugin.dungeonsxl = null;
+                    partyPlugin.dungeonsXl = null;
                     log.info(String.format("[%s][Party] %s un-hooked.", plugin.getDescription().getName(), partyPlugin.pluginName));
                 }
             }
@@ -98,7 +98,7 @@ public class PartyProvider_DungeonsXL extends PartyProvider {
 
     @Override
     public boolean isPluginEnabled() {
-        if (dungeonsxl == null) {
+        if (dungeonsXl == null) {
             return false;
         }
         if (plugin.getServer().getPluginManager().getPlugin(pluginName) != null) {
@@ -114,29 +114,29 @@ public class PartyProvider_DungeonsXL extends PartyProvider {
 
     @Override
     public boolean createParty(String partyName, UUID playerId) {
-        return dungeonsxl.createGroup(plugin.getServer().getPlayer(playerId)) != null;
+        return dungeonsXl.createGroup(plugin.getServer().getPlayer(playerId)) != null;
     }
 
     @Override
     public boolean isPlayerInParty(UUID playerId) {
-        return dungeonsxl.getPlayerGroup(plugin.getServer().getPlayer(playerId)) != null;
+        return dungeonsXl.getPlayerGroup(plugin.getServer().getPlayer(playerId)) != null;
     }
 
     @Override
     public boolean areInSameParty(UUID playerId1, UUID playerId2) {
-        final PlayerGroup one = dungeonsxl.getPlayerGroup(plugin.getServer().getPlayer(playerId1));
-        final PlayerGroup two = dungeonsxl.getPlayerGroup(plugin.getServer().getPlayer(playerId2));
+        final PlayerGroup one = dungeonsXl.getPlayerGroup(plugin.getServer().getPlayer(playerId1));
+        final PlayerGroup two = dungeonsXl.getPlayerGroup(plugin.getServer().getPlayer(playerId2));
         return one.getId() == two.getId();
     }
 
     @Override
     public String getPartyName(UUID playerId) {
-        return dungeonsxl.getPlayerGroup(plugin.getServer().getPlayer(playerId)).getName();
+        return dungeonsXl.getPlayerGroup(plugin.getServer().getPlayer(playerId)).getName();
     }
 
     @Override
     public String getPartyId(UUID playerId) {
-        return String.valueOf(dungeonsxl.getPlayerGroup(plugin.getServer().getPlayer(playerId)).getId());
+        return String.valueOf(dungeonsXl.getPlayerGroup(plugin.getServer().getPlayer(playerId)).getId());
     }
 
     @Override
@@ -167,7 +167,7 @@ public class PartyProvider_DungeonsXL extends PartyProvider {
     }
 
     public PlayerGroup getGroupById(int id) {
-        for (PlayerGroup group : dungeonsxl.getGroupCache()) {
+        for (PlayerGroup group : dungeonsXl.getGroupCache()) {
             if (group.getId() == id) {
                 return group;
             }

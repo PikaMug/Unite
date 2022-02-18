@@ -24,7 +24,7 @@ public class PartyJoinEvent_mcMMO extends PartyJoinEvent {
     }
 
     @Override
-    public PartyProvider getPartyProvider() {
+    public @NotNull PartyProvider getPartyProvider() {
         return partyProvider;
     }
 

@@ -25,7 +25,7 @@ public class PartyCreateEvent_DungeonsXL extends PartyCreateEvent {
     }
 
     @Override
-    public PartyProvider getPartyProvider() {
+    public @NotNull PartyProvider getPartyProvider() {
         return partyProvider;
     }
 

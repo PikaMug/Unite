@@ -1,21 +1,22 @@
-package me.pikamug.unite.api.events.mcmmo;
+package me.pikamug.unite.api.events.simpleclans;
 
-import com.gmail.nossr50.events.party.McMMOPartyChangeEvent;
 import me.pikamug.unite.api.events.PartyDeleteEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
+import net.sacredlabyrinth.phaed.simpleclans.events.DisbandClanEvent;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.UUID;
 
-public class PartyDeleteEvent_mcMMO extends PartyDeleteEvent {
+public class PartyDeleteEvent_SimpleClans extends PartyDeleteEvent {
     private final PartyProvider partyProvider;
-    private final McMMOPartyChangeEvent event;
+    private final DisbandClanEvent event;
 
-    public PartyDeleteEvent_mcMMO(PartyProvider partyProvider, Event event, boolean async) {
+    public PartyDeleteEvent_SimpleClans(PartyProvider partyProvider, Event event, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = (McMMOPartyChangeEvent) event;
+        this.event = (DisbandClanEvent) event;
     }
 
     @Override
@@ -30,6 +31,6 @@ public class PartyDeleteEvent_mcMMO extends PartyDeleteEvent {
 
     @Override
     public UUID getDisbander() {
-        return event.getPlayer().getUniqueId();
+        return Objects.requireNonNull(event.getSender()).getUniqueId();
     }
 }

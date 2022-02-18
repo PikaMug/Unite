@@ -1,22 +1,22 @@
-package me.pikamug.unite.api.events.parties;
+package me.pikamug.unite.api.events.simpleclans;
 
-import com.alessiodp.parties.api.events.bukkit.party.BukkitPartiesPartyPostCreateEvent;
 import me.pikamug.unite.api.events.PartyCreateEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
+import net.sacredlabyrinth.phaed.simpleclans.events.PreCreateClanEvent;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public class PartyCreateEvent_Parties extends PartyCreateEvent {
+public class PartyCreateEvent_SimpleClans extends PartyCreateEvent {
     private final PartyProvider partyProvider;
-    private final BukkitPartiesPartyPostCreateEvent event;
+    private final PreCreateClanEvent event;
 
-    public PartyCreateEvent_Parties(PartyProvider partyProvider, Event event, boolean async) {
+    public PartyCreateEvent_SimpleClans(PartyProvider partyProvider, Event event, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = (BukkitPartiesPartyPostCreateEvent) event;
+        this.event = (PreCreateClanEvent) event;
     }
 
     @Override
@@ -31,6 +31,6 @@ public class PartyCreateEvent_Parties extends PartyCreateEvent {
 
     @Override
     public UUID getCreator() {
-        return Objects.requireNonNull(event.getCreator()).getPlayerUUID();
+        return Objects.requireNonNull(event.getPlayer()).getUniqueId();
     }
 }

@@ -25,7 +25,7 @@ public class PartyDeleteEvent_DungeonsXL extends PartyDeleteEvent {
     }
 
     @Override
-    public PartyProvider getPartyProvider() {
+    public @NotNull PartyProvider getPartyProvider() {
         return partyProvider;
     }
 

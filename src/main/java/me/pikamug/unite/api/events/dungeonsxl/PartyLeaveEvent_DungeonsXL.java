@@ -24,7 +24,7 @@ public class PartyLeaveEvent_DungeonsXL extends PartyLeaveEvent {
     }
 
     @Override
-    public PartyProvider getPartyProvider() {
+    public @NotNull PartyProvider getPartyProvider() {
         return partyProvider;
     }
 

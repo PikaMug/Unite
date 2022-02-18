@@ -24,7 +24,7 @@ public class PartyLeaveEvent_mcMMO extends PartyLeaveEvent {
     }
 
     @Override
-    public PartyProvider getPartyProvider() {
+    public @NotNull PartyProvider getPartyProvider() {
         return partyProvider;
     }
 
