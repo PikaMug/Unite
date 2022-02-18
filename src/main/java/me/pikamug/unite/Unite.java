@@ -57,7 +57,7 @@ public class Unite extends JavaPlugin {
         hookProvider("Parties", PartyProvider_Parties.class, ServicePriority.Highest, "com.alessiodp.parties.api.interfaces.PartiesAPI");
         hookProvider("DungeonsXL", PartyProvider_DungeonsXL.class, ServicePriority.Normal, "de.erethon.dungeonsxl.DungeonsXL");
         hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager");
-        hookProvider("SimpleCland", PartyProvider_SimpleClans.class, ServicePriority.Normal, "net.sacredlabyrinth.phaed.simpleclans.SimpleClans");
+        hookProvider("SimpleClans", PartyProvider_SimpleClans.class, ServicePriority.Normal, "net.sacredlabyrinth.phaed.simpleclans.SimpleClans");
     }
 
     private void hookProvider(String name, Class<? extends PartyProvider> hookClass, ServicePriority priority, String...packages) {
