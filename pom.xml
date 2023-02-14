@@ -6,7 +6,7 @@
 
     <groupId>me.pikamug.unite</groupId>
     <artifactId>Unite</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,9 +33,14 @@
             <url>https://nexus.neetgames.com/repository/maven-releases/</url>
         </repository>
         <repository>
+            <!-- Party and Friends -->
+            <id>simonsators-repo</id>
+            <url>https://simonsator.de/repo</url>
+        </repository>
+        <repository>
             <!-- SimpleClans -->
             <id>roinujnosde-repo</id>
-            <url>https://repo.roinujnosde.me/#/releases/</url>
+            <url>https://repo.roinujnosde.me/releases/</url>
         </repository>
     </repositories>
 
@@ -44,6 +49,12 @@
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.13.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.16-R0.5-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -71,9 +82,22 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>de.simonsator</groupId>
+            <artifactId>DevelopmentPAFSpigot</artifactId>
+            <version>1.0.67</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.simonsator</groupId>
+            <artifactId>BungeecordPartyAndFriends</artifactId>
+            <version>1.0.89</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>net.sacredlabyrinth.phaed.simpleclans</groupId>
             <artifactId>SimpleClans</artifactId>
-            <version>2.18.1</version>
+            <version>2.18.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

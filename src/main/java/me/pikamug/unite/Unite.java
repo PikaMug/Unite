@@ -2,6 +2,7 @@ package me.pikamug.unite;
 
 import me.pikamug.unite.api.objects.PartyProvider;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_DungeonsXL;
+import me.pikamug.unite.api.objects.plugins.PartyProvider_PAF;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_Parties;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_SimpleClans;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_mcMMO;
@@ -57,6 +58,7 @@ public class Unite extends JavaPlugin {
         hookProvider("Parties", PartyProvider_Parties.class, ServicePriority.Highest, "com.alessiodp.parties.api.interfaces.PartiesAPI");
         hookProvider("DungeonsXL", PartyProvider_DungeonsXL.class, ServicePriority.Normal, "de.erethon.dungeonsxl.DungeonsXL");
         hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager");
+        hookProvider("PartyAndFriends", PartyProvider_PAF.class, ServicePriority.Normal, "de.simonsator.partyandfriends.main.PAFPlugin");
         hookProvider("SimpleClans", PartyProvider_SimpleClans.class, ServicePriority.Normal, "net.sacredlabyrinth.phaed.simpleclans.SimpleClans");
     }
 
