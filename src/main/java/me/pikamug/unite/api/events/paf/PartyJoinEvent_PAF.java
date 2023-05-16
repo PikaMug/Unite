@@ -18,7 +18,7 @@ public class PartyJoinEvent_PAF extends me.pikamug.unite.api.events.PartyJoinEve
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return (Event)((Object)event);
     }
 

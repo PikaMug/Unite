@@ -1,26 +1,24 @@
-package me.pikamug.unite.api.events.mcmmo;
+package me.pikamug.unite.api.events.pafgui;
 
-import com.gmail.nossr50.events.party.McMMOPartyChangeEvent;
-import me.pikamug.unite.api.events.PartyLeaveEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class PartyLeaveEvent_mcMMO extends PartyLeaveEvent {
+public class PartyJoinEvent_PAFGUI extends me.pikamug.unite.api.events.PartyJoinEvent {
     private final PartyProvider partyProvider;
-    private final McMMOPartyChangeEvent event;
+    private final UUID partyPlayer;
 
-    public PartyLeaveEvent_mcMMO(PartyProvider partyProvider, Event event, boolean async) {
+    public PartyJoinEvent_PAFGUI(PartyProvider partyProvider, UUID partyPlayer, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = (McMMOPartyChangeEvent) event;
+        this.partyPlayer = partyPlayer;
     }
 
     @Override
     public Event getPluginEvent() {
-        return event;
+        return null;
     }
 
     @Override
@@ -30,6 +28,6 @@ public class PartyLeaveEvent_mcMMO extends PartyLeaveEvent {
 
     @Override
     public UUID getPlayer() {
-        return event.getPlayer().getUniqueId();
+        return partyPlayer;
     }
 }

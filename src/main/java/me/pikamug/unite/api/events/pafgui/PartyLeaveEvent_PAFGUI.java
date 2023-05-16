@@ -1,6 +1,5 @@
-package me.pikamug.unite.api.events.dungeonsxl;
+package me.pikamug.unite.api.events.pafgui;
 
-import de.erethon.dungeonsxl.api.event.group.GroupPlayerLeaveEvent;
 import me.pikamug.unite.api.events.PartyLeaveEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
 import org.bukkit.event.Event;
@@ -8,19 +7,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class PartyLeaveEvent_DungeonsXL extends PartyLeaveEvent {
+public class PartyLeaveEvent_PAFGUI extends PartyLeaveEvent {
     private final PartyProvider partyProvider;
-    private final GroupPlayerLeaveEvent event;
+    private final UUID partyPlayer;
 
-    public PartyLeaveEvent_DungeonsXL(PartyProvider partyProvider, Event event, boolean async) {
+    public PartyLeaveEvent_PAFGUI(PartyProvider partyProvider, UUID partyPlayer, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = (GroupPlayerLeaveEvent) event;
+        this.partyPlayer = partyPlayer;
     }
 
     @Override
     public Event getPluginEvent() {
-        return event;
+        return null;
     }
 
     @Override
@@ -30,6 +29,6 @@ public class PartyLeaveEvent_DungeonsXL extends PartyLeaveEvent {
 
     @Override
     public UUID getPlayer() {
-        return event.getPlayer().getPlayer().getUniqueId();
+        return partyPlayer;
     }
 }

@@ -155,6 +155,7 @@ public class PartyProvider_PAF extends PartyProvider {
 
     @Override
     public UUID getLeader(String partyId) {
+        // Lookup player UUID since PAF does not use party IDs
         if (PartyManager.getInstance().getParty(UUID.fromString(partyId)) != null) {
             return PartyManager.getInstance().getParty(UUID.fromString(partyId)).getLeader().getUniqueId();
         }
@@ -163,11 +164,8 @@ public class PartyProvider_PAF extends PartyProvider {
 
     @Override
     public Set<UUID> getMembers(String partyId) {
-        final UUID playerId = getLeader(partyId);
-        if (playerId != null) {
-            return PartyManager.getInstance().getParty(playerId).getAllPlayers().stream().map(OnlinePAFPlayer::getUniqueId).collect(Collectors.toSet());
-        }
-        return Collections.emptySet();
+        // Return online members since PAF does not retain offline
+        return getOnlineMembers(partyId);
     }
 
     @Override

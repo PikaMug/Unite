@@ -19,7 +19,7 @@ public class PartyLeaveEvent_PAF extends PartyLeaveEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return (Event)((Object)event);
     }
 

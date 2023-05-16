@@ -19,7 +19,7 @@ public class PartyDeleteEvent_mcMMO extends PartyDeleteEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

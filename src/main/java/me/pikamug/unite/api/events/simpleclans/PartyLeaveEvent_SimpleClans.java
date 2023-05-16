@@ -19,7 +19,7 @@ public class PartyLeaveEvent_SimpleClans extends PartyLeaveEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

@@ -19,7 +19,7 @@ public class PartyCreateEvent_mcMMO extends PartyCreateEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

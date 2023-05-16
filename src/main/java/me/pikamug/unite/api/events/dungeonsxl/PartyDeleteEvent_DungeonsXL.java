@@ -20,7 +20,7 @@ public class PartyDeleteEvent_DungeonsXL extends PartyDeleteEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

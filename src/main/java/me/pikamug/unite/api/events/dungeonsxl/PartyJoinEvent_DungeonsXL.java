@@ -19,7 +19,7 @@ public class PartyJoinEvent_DungeonsXL extends PartyJoinEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

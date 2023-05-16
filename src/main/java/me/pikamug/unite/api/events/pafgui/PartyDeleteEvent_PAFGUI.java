@@ -1,6 +1,5 @@
-package me.pikamug.unite.api.events.paf;
+package me.pikamug.unite.api.events.pafgui;
 
-import de.simonsator.partyandfriends.api.events.party.LeftPartyEvent;
 import me.pikamug.unite.api.events.PartyDeleteEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
 import org.bukkit.event.Event;
@@ -8,19 +7,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class PartyDeleteEvent_PAF extends PartyDeleteEvent {
+public class PartyDeleteEvent_PAFGUI extends PartyDeleteEvent {
     private final PartyProvider partyProvider;
-    private final LeftPartyEvent event;
+    private final UUID partyPlayer;
 
-    public PartyDeleteEvent_PAF(PartyProvider partyProvider, LeftPartyEvent event, boolean async) {
+    public PartyDeleteEvent_PAFGUI(PartyProvider partyProvider, UUID partyPlayer, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = event;
+        this.partyPlayer = partyPlayer;
     }
 
     @Override
     public Event getPluginEvent() {
-        return (Event)((Object)event);
+        return null;
     }
 
     @Override
@@ -30,6 +29,6 @@ public class PartyDeleteEvent_PAF extends PartyDeleteEvent {
 
     @Override
     public UUID getDisbander() {
-        return event.getPlayer().getUniqueId();
+        return partyPlayer;
     }
 }

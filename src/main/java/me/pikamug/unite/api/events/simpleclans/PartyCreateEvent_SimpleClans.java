@@ -20,7 +20,7 @@ public class PartyCreateEvent_SimpleClans extends PartyCreateEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

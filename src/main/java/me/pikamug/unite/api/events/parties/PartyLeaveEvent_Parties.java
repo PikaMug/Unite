@@ -19,7 +19,7 @@ public class PartyLeaveEvent_Parties extends PartyLeaveEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

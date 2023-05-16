@@ -21,7 +21,7 @@ public class PartyDeleteEvent_SimpleClans extends PartyDeleteEvent {
     }
 
     @Override
-    public @NotNull Event getPluginEvent() {
+    public Event getPluginEvent() {
         return event;
     }
 

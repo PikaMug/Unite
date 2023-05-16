@@ -3,6 +3,7 @@ package me.pikamug.unite;
 import me.pikamug.unite.api.objects.PartyProvider;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_DungeonsXL;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_PAF;
+import me.pikamug.unite.api.objects.plugins.PartyProvider_PAFGUI;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_Parties;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_SimpleClans;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_mcMMO;
@@ -59,6 +60,7 @@ public class Unite extends JavaPlugin {
         hookProvider("DungeonsXL", PartyProvider_DungeonsXL.class, ServicePriority.Normal, "de.erethon.dungeonsxl.DungeonsXL");
         hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager");
         hookProvider("PartyAndFriends", PartyProvider_PAF.class, ServicePriority.Normal, "de.simonsator.partyandfriends.main.PAFPlugin");
+        hookProvider("PartyAndFriendsGUI",  PartyProvider_PAFGUI.class, ServicePriority.High, "de.simonsator.partyandfriendsgui.PAFGUIPlugin");
         hookProvider("SimpleClans", PartyProvider_SimpleClans.class, ServicePriority.Normal, "net.sacredlabyrinth.phaed.simpleclans.SimpleClans");
     }
 
@@ -86,7 +88,7 @@ public class Unite extends JavaPlugin {
                 Class.forName(pkg);
             }
             return true;
-        } catch (Exception e) {
+        } catch (NoClassDefFoundError | ClassNotFoundException e) {
             return false;
         }
     }

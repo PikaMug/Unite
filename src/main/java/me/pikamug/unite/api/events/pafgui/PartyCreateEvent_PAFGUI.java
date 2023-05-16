@@ -1,6 +1,5 @@
-package me.pikamug.unite.api.events.paf;
+package me.pikamug.unite.api.events.pafgui;
 
-import de.simonsator.partyandfriends.api.events.party.PartyCreatedEvent;
 import me.pikamug.unite.api.events.PartyCreateEvent;
 import me.pikamug.unite.api.objects.PartyProvider;
 import org.bukkit.event.Event;
@@ -8,19 +7,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-public class PartyCreateEvent_PAF extends PartyCreateEvent {
+public class PartyCreateEvent_PAFGUI extends PartyCreateEvent {
     private final PartyProvider partyProvider;
-    private final PartyCreatedEvent event;
+    private final UUID partyPlayer;
 
-    public PartyCreateEvent_PAF(PartyProvider partyProvider, PartyCreatedEvent event, boolean async) {
+    public PartyCreateEvent_PAFGUI(PartyProvider partyProvider, UUID partyPlayer, boolean async) {
         super(async);
         this.partyProvider = partyProvider;
-        this.event = event;
+        this.partyPlayer = partyPlayer;
     }
 
     @Override
     public Event getPluginEvent() {
-        return (Event)((Object)event);
+        return null;
     }
 
     @Override
@@ -30,6 +29,6 @@ public class PartyCreateEvent_PAF extends PartyCreateEvent {
 
     @Override
     public UUID getCreator() {
-        return event.getParty().getLeader().getUniqueId();
+        return partyPlayer;
     }
 }

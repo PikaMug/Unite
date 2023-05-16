@@ -6,7 +6,7 @@
 
     <groupId>me.pikamug.unite</groupId>
     <artifactId>Unite</artifactId>
-    <version>1.1.6</version>
+    <version>1.1.7</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -88,13 +88,25 @@
         <dependency>
             <groupId>de.simonsator</groupId>
             <artifactId>DevelopmentPAFSpigot</artifactId>
-            <version>1.0.67</version>
+            <version>1.0.239</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>de.simonsator</groupId>
             <artifactId>BungeecordPartyAndFriends</artifactId>
             <version>1.0.89</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.simonsator</groupId>
+            <artifactId>Party-and-Friends-MySQL-Edition-Spigot-API</artifactId>
+            <version>1.5.4-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.simonsator</groupId>
+            <artifactId>spigot-party-api-for-party-and-friends</artifactId>
+            <version>1.0.5-RELEASE</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
