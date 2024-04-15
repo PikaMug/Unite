@@ -3,6 +3,7 @@ package me.pikamug.unite.api.objects.plugins;
 import com.gmail.nossr50.datatypes.player.McMMOPlayer;
 import com.gmail.nossr50.datatypes.player.PlayerProfile;
 import com.gmail.nossr50.events.party.McMMOPartyChangeEvent;
+import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.party.PartyManager;
 import com.gmail.nossr50.util.player.UserManager;
 import me.pikamug.unite.api.events.PartyCreateEvent;
@@ -31,11 +32,16 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class PartyProvider_mcMMO extends PartyProvider {
+    private mcMMO mcmmo;
     private final String pluginName = "mcMMO";
 
     public PartyProvider_mcMMO(Plugin plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(new PartyServerListener(this), plugin);
+
+        if (mcmmo == null) {
+            mcmmo = (mcMMO) Bukkit.getPluginManager().getPlugin("mcMMO");
+        }
     }
 
     public class PartyServerListener implements Listener {
@@ -113,24 +119,24 @@ public class PartyProvider_mcMMO extends PartyProvider {
         }
         final PlayerProfile profile = UserManager.getPlayer(player).getProfile();
         final McMMOPlayer mcMMOPlayer = new McMMOPlayer(player, profile);
-        PartyManager.createParty(mcMMOPlayer, partyName, null);
+        mcmmo.getPartyManager().createParty(mcMMOPlayer, partyName, null);
         return true;
     }
 
     @Override
     public boolean isPlayerInParty(UUID playerId) {
-        return PartyManager.getParty(Bukkit.getPlayer(playerId)) != null;
+        return mcmmo.getPartyManager().getParty(Bukkit.getPlayer(playerId)) != null;
     }
 
     @Override
     public boolean areInSameParty(UUID playerId1, UUID playerId2) {
-        return PartyManager.inSameParty(Bukkit.getPlayer(playerId1), Bukkit.getPlayer(playerId2));
+        return mcmmo.getPartyManager().inSameParty(Bukkit.getPlayer(playerId1), Bukkit.getPlayer(playerId2));
     }
 
     @Override
     public String getPartyName(UUID playerId) {
-        if (PartyManager.getParty(Bukkit.getPlayer(playerId)) != null) {
-            return PartyManager.getParty(Bukkit.getPlayer(playerId)).getName();
+        if (mcmmo.getPartyManager().getParty(Bukkit.getPlayer(playerId)) != null) {
+            return mcmmo.getPartyManager().getParty(Bukkit.getPlayer(playerId)).getName();
         }
         return null;
     }
@@ -145,17 +151,17 @@ public class PartyProvider_mcMMO extends PartyProvider {
     public UUID getLeader(String partyId) {
         //final String playerName = PartyManager.getPartyLeaderName(partyId);
         //return Bukkit.getOfflinePlayer(playerName).getUniqueId();
-        return PartyManager.getParty(partyId).getLeader().getUniqueId();
+        return mcmmo.getPartyManager().getParty(partyId).getLeader().getUniqueId();
     }
 
     @Override
     public Set<UUID> getMembers(String partyId) {
         final UUID playerId = getLeader(partyId);
-        return PartyManager.getAllMembers(Bukkit.getPlayer(playerId)).keySet();
+        return mcmmo.getPartyManager().getAllMembers(Bukkit.getPlayer(playerId)).keySet();
     }
 
     @Override
     public Set<UUID> getOnlineMembers(String partyId) {
-        return PartyManager.getOnlineMembers(partyId).stream().map(Player::getUniqueId).collect(Collectors.toSet());
+        return mcmmo.getPartyManager().getOnlineMembers(partyId).stream().map(Player::getUniqueId).collect(Collectors.toSet());
     }
 }
