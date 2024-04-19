@@ -32,11 +32,6 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <!-- mcMMO Overhaul -->
-            <id>neetgames</id>
-            <url>https://nexus.neetgames.com/repository/maven-releases/</url>
-        </repository>
-        <repository>
             <!-- Party and Friends -->
             <id>simonsators-repo</id>
             <url>https://simonsator.de/repo</url>
@@ -80,9 +75,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.gmail.nossr50.mcMMO</groupId>
-            <artifactId>mcMMO</artifactId>
-            <version>2.2.006</version>
+            <groupId>com.github.PikaMug</groupId>
+            <artifactId>mcMMO-for-Java-8</artifactId>
+            <version>dd16fc5496</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -123,6 +118,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
