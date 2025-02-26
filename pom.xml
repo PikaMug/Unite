@@ -6,7 +6,7 @@
 
     <groupId>me.pikamug.unite</groupId>
     <artifactId>Unite</artifactId>
-    <version>1.1.8</version>
+    <version>1.2.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
             <url>https://repo.alessiodp.com/releases/</url>
         </repository>
         <repository>
-            <!-- DungeonsXL -->
+            <!-- BetterTeams, DungeonsXL -->
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -66,6 +66,12 @@
             <groupId>com.alessiodp.parties</groupId>
             <artifactId>parties-bukkit</artifactId>
             <version>3.2.9</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.booksaw</groupId>
+            <artifactId>BetterTeams</artifactId>
+            <version>4.11.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

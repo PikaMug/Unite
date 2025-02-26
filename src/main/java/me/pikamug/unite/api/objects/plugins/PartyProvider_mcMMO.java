@@ -40,7 +40,7 @@ public class PartyProvider_mcMMO extends PartyProvider {
         plugin.getServer().getPluginManager().registerEvents(new PartyServerListener(this), plugin);
 
         if (mcmmo == null) {
-            mcmmo = (mcMMO) Bukkit.getPluginManager().getPlugin("mcMMO");
+            mcmmo = (mcMMO) Bukkit.getPluginManager().getPlugin(pluginName);
         }
     }
 

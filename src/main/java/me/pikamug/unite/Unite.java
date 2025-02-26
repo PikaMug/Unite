@@ -1,6 +1,7 @@
 package me.pikamug.unite;
 
 import me.pikamug.unite.api.objects.PartyProvider;
+import me.pikamug.unite.api.objects.plugins.PartyProvider_BetterTeams;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_DungeonsXL;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_PAF;
 import me.pikamug.unite.api.objects.plugins.PartyProvider_PAFGUI;
@@ -57,6 +58,7 @@ public class Unite extends JavaPlugin {
 
     public void hookProviders() {
         hookProvider("Parties", PartyProvider_Parties.class, ServicePriority.Highest, "com.alessiodp.parties.api.interfaces.PartiesAPI");
+        hookProvider("BetterTeams", PartyProvider_BetterTeams.class, ServicePriority.Normal, "com.booksaw.betterTeams.Main");
         hookProvider("DungeonsXL", PartyProvider_DungeonsXL.class, ServicePriority.Normal, "de.erethon.dungeonsxl.DungeonsXL");
         hookProvider("mcMMO", PartyProvider_mcMMO.class, ServicePriority.High, "com.gmail.nossr50.party.PartyManager");
         hookProvider("PartyAndFriends", PartyProvider_PAF.class, ServicePriority.Normal, "de.simonsator.partyandfriends.main.PAFPlugin");
